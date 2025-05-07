@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+      <meta charset="UTF-8" />
+      <title>Movie List</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+    <body>
+      <div class="container">
+        <div class="logo">
+          <img src="{{ url_for('static', filename='img/logo-video-new.png') }}" alt="Evolve.ins" />
+        </div>
+        <h1>Enter your Email, to get a free PDF</h1>
+        <form action="/send" method="POST">
+          <input type="email" name="email" required placeholder="Your email" />
+          <button type="submit">submit</button>
+        </form>
+        {% if message %}
+        <p>{{ message }}</p>
+        {% endif %}
+      </div>
+    </body>
+  </html>
+</html>
