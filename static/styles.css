@@ -1,155 +1,62 @@
-/**,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-ul[class],
-ol[class] {
-  padding: 0;
-}
-
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-ul[class],
-ol[class],
-li,
-figure,
-figcaption,
-blockquote,
-dl,
-dd {
-  margin: 0;
-}
-
-body {
-  min-height: 100vh;
-  scroll-behavior: smooth;
-  text-rendering: optimizeSpeed;
-  line-height: 1.5;
-}
-
-ul[class],
-ol[class] {
-  list-style: none;
-}
-
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-article>*+* {
-  margin-top: 1em;
-}
-
 input,
 button,
 textarea,
 select {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
   font: inherit;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+button {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
-@font-face {
-  font-family: 'Baskerville';
-  src: url('./font/Baskervville-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Baskerville-italic';
-  src: url('./font/Baskervville-Italic.ttf') format('truetype');
-}
-
-body {
-  font-family: "Baskervville", serif;
-  background-color: #00382D;
-  color: #f1f1f1f1;
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00382d;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 9999;
+  animation: fadeOut 0.5s ease 2s forwards;}
+
+#preloader img {
+  width: 100px;
+  animation: blink 1s infinite;
 }
 
-.container {
-  padding: 0 32px;
-  text-align: center;
+/* Анимация исчезновения */
+@keyframes fadeOut {
+  to {
+      opacity: 0;
+      display: none;
+    }
 }
 
-.logo {
-  width: 150px;
-  text-align: center;
-  margin: 0 auto;
+/* Анимация мигания логотипа */
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
 }
 
-h1 {
-  font-family: "Baskerville-italic", serif;
-  margin-bottom: 50px;
-  font-size: 50px;
+/* Скрываем основной контент до загрузки */
+#main-content {
+  opacity: 0;
+  transition: opacity 0.8s ease;
 }
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  min-width: 400px;
-  max-width: 1200px;
-}
-
-input {
-  min-width: 400px;
-  max-width: 800px;
-  height: 40px;
-  border-radius: 5px;
-  border: none;
-  box-shadow: none;
-  padding: 0 16px;
-}
-
-input::placeholder {
-  font-family: "Baskerville-italic", serif;
-}
-
-button {
-  height: 40px;
-  min-width: 400px;
-  max-width: 1200px;  
-  font-size: 20px;
-  text-align: center;
-  border-radius: 5px;
-  background-color: #f1f1f1f1;
-  border: none;
-  box-shadow: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-button:hover {
-  background-color: #f0f0f0c9;
-}
-
-button:active {
-  background-color: #fff;
-}
-
-p {
-  margin-top: 20px;
-}*/
 
 body {
   margin: 0;
