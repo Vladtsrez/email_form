@@ -1,25 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
-    <head>
-      <meta charset="UTF-8" />
-      <title>Movie List</title>
-      <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    </head>
-    <body>
-      <div class="container">
-        <div class="logo">
-          <img src="{{ url_for('static', filename='img/logo-video-new.png') }}" alt="Evolve.ins" />
-        </div>
-        <h1>Enter your Email, to get a free PDF</h1>
-        <form action="/send" method="POST">
-          <input type="email" name="email" required placeholder="Your email" />
-          <button type="submit">submit</button>
-        </form>
-        {% if message %}
-        <p>{{ message }}</p>
-        {% endif %}
+  <head>
+    <meta charset="UTF-8" />
+    <title>Movie List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <img
+          src="{{ url_for('static', filename='img/logo-video-new.png') }}"
+          alt="Evolve.ins"
+        />
       </div>
-    </body>
-  </html>
+      <h1>Enter your Email, to get a free PDF</h1>
+      <form action="/send" method="POST">
+        <input type="email" name="email" required placeholder="Your email" />
+        <button type="submit">Submit</button>
+      </form>
+      {% if message %}
+      <p>{{ message }}</p>
+      {% endif %}
+
+      <div class="social-icons">
+        <a href="#"
+          ><img
+            src="{{ url_for('static', filename='img/facebook-icon-2.png') }}"
+            alt="Facebook"
+        /></a>
+        <a href="https://www.instagram.com/evolve.ins"
+          ><img
+            src="{{ url_for('static', filename='img/Instagram-icon.png') }}"
+            alt="Instagram"
+        /></a>
+        <a href="#"
+          ><img
+            src="{{ url_for('static', filename='img/patreon-icon.svg') }}"
+            alt="Patreon"
+        /></a>
+        <a href="https://www.youtube.com/@evolveinsp"
+          ><img
+            src="{{ url_for('static', filename='img/youtube.svg') }}"
+            alt="YouTube"
+        /></a>
+      </div>
+    </div>
+  </body>
 </html>

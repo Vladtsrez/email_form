@@ -1,4 +1,4 @@
-*,
+/**,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -58,7 +58,6 @@ select {
   font: inherit;
 }
 
-/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -150,4 +149,113 @@ button:active {
 
 p {
   margin-top: 20px;
+}*/
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #00382d;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px;
+  padding: 30px 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.logo img {
+  max-width: 80px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 22px;
+  margin-bottom: 24px;
+  color: #ffffff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+input[type="email"] {
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+button[type="submit"] {
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ececec, #ffffff);
+  color: #00382d;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(90deg, #b9b9b9, #ffffff);
+}
+
+p {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.social-icons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.social-icons a img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+  /* делает иконки белыми */
+  transition: filter 0.3s ease, transform 0.2s ease;
+}
+
+.social-icons a:hover img {
+  filter: brightness(0) saturate(100%) sepia(100%) hue-rotate(100deg) contrast(1.2);
+  transform: scale(1.1);
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 18px;
+  }
+
+  input[type="email"],
+  button[type="submit"] {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .social-icons a {
+    font-size: 16px;
+  }
 }
