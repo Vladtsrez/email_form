@@ -9,12 +9,12 @@ app = Flask(__name__)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'tsvihuneditingcorp@gmail.com'
-app.config['MAIL_PASSWORD'] = 'ybzn euin cuix gorb'
+app.config['MAIL_USERNAME'] = os.environ.get("MAIL_USERNAME")
+app.config['MAIL_PASSWORD'] = os.environ.get("MAIL_PASSWORD")
 mail = Mail(app)
 
 # ==== База данных Postgres ====
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://email_db_ah75_user:pXeQgFmoBMKURV0eQwwMeJuSw167Gz2H@dpg-d0dl6nmuk2gs73d88v0g-a.frankfurt-postgres.render.com/email_db_ah75'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:MaUPwxkGJJifakxsAwFtXybpUewshLzL@hopper.proxy.rlwy.net:14442/railway'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
