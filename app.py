@@ -50,8 +50,8 @@ def send_email():
     try:
         msg = Message('Ваш PDF файл', sender=app.config['MAIL_USERNAME'], recipients=[user_email])
         msg.body = 'Спасибо за интерес! Во вложении находится PDF файл.'
-        with app.open_resource("offer.pdf") as fp:
-            msg.attach("offer.pdf", "application/pdf", fp.read())
+        with app.open_resource("Where Emotion Meets Cinema.pdf") as fp:
+            msg.attach("Where Emotion Meets Cinema.pdf", "application/pdf", fp.read())
         mail.send(msg)
         return render_template('index.html', message="Email успешно отправлен!")
     except Exception as e:
