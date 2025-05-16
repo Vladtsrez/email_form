@@ -44,18 +44,18 @@ def send_email():
         db.session.add(new_subscriber)
         db.session.commit()
     except Exception as e:
-        return render_template('index.html', message=f"Ошибка при сохранении email: {str(e)}")
+        return render_template('index.html', message=f"Error saving email: {str(e)}")
 
     # Отправляем письмо с PDF
     try:
-        msg = Message('Ваш PDF файл', sender=app.config['MAIL_USERNAME'], recipients=[user_email])
-        msg.body = 'Спасибо за интерес! Во вложении находится PDF файл.'
+        msg = Message('Your PDF file', sender=app.config['MAIL_USERNAME'], recipients=[user_email])
+        msg.body = 'Thank you for your interest! Attached is a PDF file.'
         with app.open_resource("Where Emotion Meets Cinema.pdf") as fp:
             msg.attach("Where Emotion Meets Cinema.pdf", "application/pdf", fp.read())
         mail.send(msg)
-        return render_template('index.html', message="Email успешно отправлен!")
+        return render_template('index.html', message="Email sent successfully!")
     except Exception as e:
-        return render_template('index.html', message=f"Ошибка при отправке письма: {str(e)}")
+        return render_template('index.html', message=f"Error sending email: {str(e)}")
 
 if __name__ == '__main__':
     app.run(debug=True)
