@@ -98,13 +98,15 @@ def send_email():
 
         # Встраиваем баннер
         with app.open_resource("static/Header-YT-2@3x.png") as img:
-          msg.attach("banner", "image/jpeg", img.read(), 'inline', headers={'Content-ID': '<banner>'})
+            msg.attach("banner", "image/jpeg", img.read(), 'inline', headers=[['Content-ID', '<banner>']])
 
+        # Встраиваем Instagram иконку
         with app.open_resource("static/img/Instagram-icon.png") as img:
-            msg.attach("instagram", "image/png", img.read(), 'inline', headers={'Content-ID', '<instagram>'})
+            msg.attach("instagram", "image/png", img.read(), 'inline', headers=[['Content-ID', '<instagram>']])
 
+        # Встраиваем YouTube иконку
         with app.open_resource("static/img/youtube.svg") as img:
-            msg.attach("youtube", "image/png", img.read(), 'inline', headers={'Content-ID', '<youtube>'})
+            msg.attach("youtube", "image/svg+xml", img.read(), 'inline', headers=[['Content-ID', '<youtube>']])
 
         mail.send(msg)
         return render_template('index.html', message="Email successfully sent!")
