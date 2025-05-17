@@ -73,17 +73,16 @@ def send_email():
 
                     <p style="font-size: 16px;">Follow us on social media:</p>
                     <p>
-                        <a href="https://www.instagram.com/evolve.ins" target="_blank" style="margin-right: 15px;">
-                            <img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" alt="Instagram">
-                        </a>
-                        <a href="https://www.youtube.com/@evolveinsp" target="_blank" style="margin-right: 15px;">
-                            <img src="https://cdn-icons-png.flaticon.com/24/1384/1384060.png" alt="YouTube">
-                        </a>
-                        <a href="https://www.tiktok.com/@evolve.in" target="_blank">
-                            <img src="https://cdn-icons-png.flaticon.com/24/3046/3046122.png" alt="TikTok">
-                        </a>
+                      <a href="https://www.instagram.com/evolve.ins" target="_blank" style="margin-right: 15px;">
+                        <img src="cid:instagram" alt="Instagram">
+                      </a>
+                      <a href="https://www.youtube.com/@evolveinsp" target="_blank" style="margin-right: 15px;">
+                        <img src="cid:youtube" alt="YouTube">
+                      </a>
+                      <a href="https://www.tiktok.com/@evolve.in" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/24/3046/3046122.png" alt="TikTok">
+                      </a>
                     </p>
-
                     <br>
                     <p style="font-size: 13px; color: #888;">Best regards,<br>The Evolve Inspiration Team</p>
                 </div>
@@ -100,6 +99,12 @@ def send_email():
         # Встраиваем баннер
         with app.open_resource("static/Header-YT-2@3x.png") as img:
           msg.attach("banner", "image/jpeg", img.read(), 'inline', headers={'Content-ID': '<banner>'})
+
+        with app.open_resource("static/img/Instagram-icon.png") as img:
+            msg.attach("instagram", "image/png", img.read(), 'inline', headers=[['Content-ID', '<instagram>']])
+
+        with app.open_resource("static/img/youtube.svg") as img:
+            msg.attach("youtube", "image/png", img.read(), 'inline', headers=[['Content-ID', '<youtube>']])
 
         mail.send(msg)
         return render_template('index.html', message="Email successfully sent!")
