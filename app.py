@@ -105,8 +105,8 @@ def send_email():
             msg.attach("instagram", "image/png", img.read(), 'inline', headers={'Content-ID': '<instagram>'})
 
         # Встраиваем YouTube иконку
-        with app.open_resource("static/img/youtube.svg") as img:
-          msg.attach("youtube.svg", "image/svg+xml", img.read(), 'inline', headers={'Content-ID': '<youtube>'})
+        with app.open_resource("static/img/youtube.png") as img:
+            msg.attach("youtube.png", "image/png", img.read(), 'inline', headers={'Content-ID': '<youtube>'})
 
         mail.send(msg)
         return render_template('index.html', message="Email successfully sent!")
