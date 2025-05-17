@@ -57,7 +57,7 @@ def send_email():
               <div style="max-width: 600px; margin: 30px auto; background: white; padding: 20px; border-radius: 10px; border: 1px solid #eee;">
               <img src="cid:banner" alt="Banner" style="width: 100%; border-radius: 10px;">
                     <h2 style="color: #164243; text-align: center; margin-top: 30px;">Welcome to Evolve Inspiration!</h2>
-                    <p style="font-size: 16px;>Thank you for subscribing. Please find your PDF file attached to this email.</p>
+                    <p style="font-size: 16px;">Thank you for subscribing. Please find your PDF file attached to this email.</p>
 
                     <div style="text-align: center; margin: 30px 0;">
                       <a href="#" style="background-color: #164243; color: white; padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: bold;">Download PDF</a>
@@ -95,7 +95,7 @@ def send_email():
 
         # Встраиваем баннер
         with app.open_resource("static/Header-YT-2@3x.png") as img:
-            msg.attach("banner", "image/jpeg", img.read(), 'inline', headers=[['Content-ID', '<banner>']])
+          msg.attach("banner", "image/jpeg", img.read(), 'inline', headers={'Content-ID': '<banner>'})
 
         mail.send(msg)
         return render_template('index.html', message="Email successfully sent!")
