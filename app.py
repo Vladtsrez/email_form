@@ -74,13 +74,13 @@ def send_email():
                     <p style="font-size: 16px;">Follow us on social media:</p>
                     <p>
                       <a href="https://www.instagram.com/evolve.ins" target="_blank" style="margin-right: 15px;">
-                        <img src="cid:instagram" alt="Instagram">
+                        <img src="cid:instagram" alt="Instagram" width="24" height="24">
                       </a>
                       <a href="https://www.youtube.com/@evolveinsp" target="_blank" style="margin-right: 15px;">
-                        <img src="cid:youtube" alt="YouTube">
+                        <img src="cid:youtube" alt="YouTube" width="24" height="24">
                       </a>
                       <a href="https://www.tiktok.com/@evolve.in" target="_blank">
-                        <img src="https://cdn-icons-png.flaticon.com/24/3046/3046122.png" alt="TikTok">
+                        <img src="https://cdn-icons-png.flaticon.com/24/3046/3046122.png" alt="TikTok" width="24" height="24">
                       </a>
                     </p>
                     <br>
@@ -106,7 +106,7 @@ def send_email():
 
         # Встраиваем YouTube иконку
         with app.open_resource("static/img/youtube.svg") as img:
-            msg.attach("youtube", "image/svg+xml", img.read(), 'inline', headers={'Content-ID': '<youtube>'})
+          msg.attach("youtube.svg", "image/svg+xml", img.read(), 'inline', headers={'Content-ID': '<youtube>'})
 
         mail.send(msg)
         return render_template('index.html', message="Email successfully sent!")
