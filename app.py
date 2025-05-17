@@ -40,11 +40,9 @@ def send_email():
 
     # Сохраняем email в базу
     try:
-        conn = sqlite3.connect('emails.db')
-        cursor = conn.cursor()
-        cursor.execute('INSERT OR IGNORE INTO subscribers (email) VALUES (?)', (user_email,))
-        conn.commit()
-        conn.close()
+        new_subscriber = Subscriber(email=user_email)
+        db.session.add(new_subscriber)
+        db.session.commit()
     except Exception as e:
         return render_template('index.html', message=f"Error saving email: {str(e)}")
 
@@ -64,7 +62,7 @@ def send_email():
                     <div style="text-align: center; margin: 30px 0;">
                       <a href="#" style="background-color: #164243; color: white; padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: bold;">Download PDF</a>
                     </div>
-                    
+
                     <p>If you have any questions, feel free to reply to this message. We’re happy to help!</p>
 
                     <hr style="margin: 30px 0;">
