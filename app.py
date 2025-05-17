@@ -64,7 +64,7 @@ def send_email():
                     <p style="font-size: 16px;">Thank you for subscribing. Please find your PDF file attached to this email.</p>
 
                     <div style="text-align: center; margin: 30px 0;">
-                      <a href="#" style="background-color: #164243; color: white; padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: bold;">Download PDF</a>
+                      <a href="https://www.evolveinspiration.life/static/pdf/Where%20Emotion%20Meets%20Cinema.pdf" style="background-color: #164243; color: white; padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: bold;">Download PDF</a>
                     </div>
 
                     <p>If you have any questions, feel free to reply to this message. We’re happy to help!</p>
@@ -93,8 +93,8 @@ def send_email():
         msg.html = html_body
 
         # Прикрепляем PDF
-        with app.open_resource("Where Emotion Meets Cinema.pdf") as fp:
-            msg.attach("Where Emotion Meets Cinema.pdf", "application/pdf", fp.read())
+        #with app.open_resource("Where Emotion Meets Cinema.pdf") as fp:
+        #    msg.attach("Where Emotion Meets Cinema.pdf", "application/pdf", fp.read())
 
         # Встраиваем баннер
         with app.open_resource("static/Header-YT-2@3x.png") as img:
