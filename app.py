@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 from flask_mail import Mail, Message
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.exc import IntegrityError
 import os
 
 app = Flask(__name__)
@@ -43,6 +44,9 @@ def send_email():
         new_subscriber = Subscriber(email=user_email)
         db.session.add(new_subscriber)
         db.session.commit()
+    except IntegrityError:
+        db.session.rollback()
+        return render_template('index.html', message="This email is already subscribed.")
     except Exception as e:
         return render_template('index.html', message=f"Error saving email: {str(e)}")
 
