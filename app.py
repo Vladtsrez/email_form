@@ -101,10 +101,10 @@ def send_email():
           msg.attach("banner", "image/jpeg", img.read(), 'inline', headers={'Content-ID': '<banner>'})
 
         with app.open_resource("static/img/Instagram-icon.png") as img:
-            msg.attach("instagram", "image/png", img.read(), 'inline', headers=[['Content-ID', '<instagram>']])
+            msg.attach("instagram", "image/png", img.read(), 'inline', headers={'Content-ID', '<instagram>'})
 
         with app.open_resource("static/img/youtube.svg") as img:
-            msg.attach("youtube", "image/png", img.read(), 'inline', headers=[['Content-ID', '<youtube>']])
+            msg.attach("youtube", "image/png", img.read(), 'inline', headers={'Content-ID', '<youtube>'})
 
         mail.send(msg)
         return render_template('index.html', message="Email successfully sent!")
