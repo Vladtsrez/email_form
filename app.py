@@ -7,12 +7,11 @@ import os
 app = Flask(__name__)
 
 # ==== Почта (Gmail) ====
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_SERVER'] = 'smtp.zoho.eu'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = os.environ.get("MAIL_USERNAME")
 app.config['MAIL_PASSWORD'] = os.environ.get("MAIL_PASSWORD")
-mail = Mail(app)
 
 # ==== База данных Postgres ====
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:MaUPwxkGJJifakxsAwFtXybpUewshLzL@hopper.proxy.rlwy.net:14442/railway'
